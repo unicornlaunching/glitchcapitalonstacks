@@ -1,7 +1,6 @@
 # Glitch Capital On Stacks
 
-![Bitcoin Flash Crash]([https://example.com/bitcoin-flash-crash.jpg](https://cathpostgrad.wordpress.com/wp-content/uploads/2015/02/house-of-cards.jpg)
-
+![Description of Image]([https://example.com/image.jpg](https://cathpostgrad.wordpress.com/wp-content/uploads/2015/02/house-of-cards.jpg))
 
 ## Picture yourself as a shrewd protagonist, navigating the treacherous world of flash crashes. This contract, a masterful strategist, lies dormant until Bitcoin's value plunges by 75%. With the precision of a seasoned manipulator, it swiftly executes your buy order, capitalizing on chaos.
 
