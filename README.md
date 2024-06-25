@@ -1,6 +1,6 @@
 # Glitch Capital On Stacks
 
-![Description of Image](https://github.com/unicornlaunching/glitchcapitalonstacks/blob/main/glitchcapitalfrankunderwood.jpeg)
+![Description of Image](https://github.com/unicornlaunching/glitchcapitalonstacks/blob/main/glitchcapitalgif.gif)
 
 ## Picture yourself as a shrewd protagonist, navigating the treacherous world of flash crashes. This contract, a masterful strategist, lies dormant until Bitcoin's value plunges by 75%. With the precision of a seasoned manipulator, it swiftly executes your buy order, capitalizing on chaos.
 
