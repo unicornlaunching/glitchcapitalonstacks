@@ -1,18 +1,36 @@
-(define-data-var btc-price (uint))
-(define-data-var user-balance (uint))
+(define-data-var btcPrice (buff 32))
 
-(define-read-only (get-btc-price) btc-price)
-(define-read-only (get-user-balance) user-balance)
+(define-read-only (getBtcPrice)
+  (ok (buff-get btcPrice 0 32))
+)
 
-(define-public (buy-btc-on-flash-crash)
-  (let ((current-price (get-btc-price)))
-    (if (>= (div (mul current-price 25) 100) btc-price)  ; If the current price is 75% or less of the stored price
+(define-public (buyBtc)
+  (let ((currentPrice (getBtcPrice)))
+    (if (isCrash currentPrice)
       (begin
-        (transfer-to-contract (get-caller) user-balance)  ; Transfer user's balance to the contract
-        (set! user-balance 0)  ; Reset user's balance
-        (set! btc-price current-price)  ; Update the stored price
+        (transfer-btc-to-exchange)
+        (exchange-btc-for-usd)
+        (transfer-usd-back-to-contract)
       )
-      (err "Flash crash condition not met")
+      (err "No crash detected")
     )
   )
+)
+
+(define-private (isCrash currentPrice)
+  (let ((previousPrice (getPreviousPrice)))
+    (if (lt-u (div-u previousPrice currentPrice) (u128-from-int 0.25))
+      (true)
+      (false)
+    )
+  )
+)
+
+(define-private (getPreviousPrice)
+  (ok (buff-get btcPrice 32 32))
+)
+
+(define-public (setBtcPrice newPrice)
+  (buff-set btcPrice 0 (u128-to-le newPrice))
+  (buff-set btcPrice 32 (getBtcPrice))
 )
